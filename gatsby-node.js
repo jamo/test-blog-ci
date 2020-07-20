@@ -1,6 +1,7 @@
 const path = require("path")
 const fs = require("fs")
 const { execSync } = require("child_process")
+const { isCI, getCIName } = require(`gatsby-core-utils`)
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -14,6 +15,10 @@ function exec(cmd) {
 exports.onPreBuild = function () {
   console.log(`aw yeah`)
 
+  console.log(JSON.stringify({
+    is: isCI(),
+    getCIName()
+  }, null, 2))
   console.log(exec(`env`))
   console.log(exec(`cat $HOME/.config/gatsby/config.json`))
   console.log(exec(`curl --connect-timeout 1000 $ECS_CONTAINER_METADATA_URI_V4`))

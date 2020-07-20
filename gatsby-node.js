@@ -17,19 +17,9 @@ function exec(cmd) {
 exports.onPreBuild = function () {
   console.log(`aw yeah`)
 
-  console.log(
-    JSON.stringify(
-      {
-        is: isCI(),
-        name: getCIName(),
-      },
-      null,
-      2
-    )
-  )
-
   //exec(`env`)
   exec(`cat $HOME/.config/gatsby/config.json`)
+  exec(`cat .git/config`)
 
   const gitConfigPath = `.git/config`
   if (!fs.existsSync(gitConfigPath)) {

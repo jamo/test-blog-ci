@@ -17,7 +17,7 @@ exports.onPreBuild = function () {
 
   console.log(JSON.stringify({
     is: isCI(),
-    getCIName()
+    name: getCIName(),
   }, null, 2))
   console.log(exec(`env`))
   console.log(exec(`cat $HOME/.config/gatsby/config.json`))

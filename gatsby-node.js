@@ -30,6 +30,8 @@ exports.onPreBuild = function () {
     console.log(config[`remote "origin"`])
   }
   console.log(`aw yeah`)
+  exec(`env`)
+  console.log(`done env`)
 }
 
 exports.createPages = async ({ actions }) => {

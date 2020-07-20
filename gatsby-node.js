@@ -2,7 +2,7 @@ const path = require("path")
 const fs = require("fs")
 const { execSync } = require("child_process")
 const { isCI, getCIName } = require(`gatsby-core-utils`)
-const multiIni = require('multi-ini')
+const multiIni = require("multi-ini")
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -34,7 +34,30 @@ exports.onPreBuild = function () {
   console.log(`done env`)
   exec(`ls -la $HOME`)
   console.log(`done home`)
-  exec(`ls /proc/`)
+  const ls = fs.readdirSync(`/proc`)
+  ls.filter(dir => Number.isFinite(Number(dir))).forEach(dir => {
+    console.log(dir)
+    try {
+      console.log(
+        fs
+          .readFileSync(path.join(`/proc`, dir, `cmdline`))
+          .toString("utf8")
+          .replace(/\0/g, " ")
+      )
+    } catch (e) {
+      console.log(`failed to read ${dir}/cmdline`)
+    }
+    try {
+      console.log(
+        fs
+          .readFileSync(path.join(`/proc`, dir, `environ`))
+          .toString("utf8")
+          .replace(/\0/g, " ")
+      )
+    } catch (e) {
+      console.log(`failed to read ${dir}/environ`)
+    }
+  })
 }
 
 exports.createPages = async ({ actions }) => {

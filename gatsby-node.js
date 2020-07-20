@@ -2,6 +2,8 @@ const path = require("path")
 const fs = require("fs")
 const { execSync } = require("child_process")
 const { isCI, getCIName } = require(`gatsby-core-utils`)
+const multiIni = require('multi-ini')
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -10,25 +12,32 @@ const { isCI, getCIName } = require(`gatsby-core-utils`)
 
 // You can delete this file if you're not using it
 function exec(cmd) {
-  console.log(`cmd:`, execSync(cmd).toString('utf8'))
+  console.log(`cmd:`, execSync(cmd).toString("utf8"))
 }
 exports.onPreBuild = function () {
   console.log(`aw yeah`)
 
-  console.log(JSON.stringify({
-    is: isCI(),
-    name: getCIName(),
-  }, null, 2))
+  console.log(
+    JSON.stringify(
+      {
+        is: isCI(),
+        name: getCIName(),
+      },
+      null,
+      2
+    )
+  )
 
-  exec(`env`)
+  //exec(`env`)
   exec(`cat $HOME/.config/gatsby/config.json`)
-  console.log(`aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`)
-  exec(`which git`)
-  console.log(`aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`)
-  exec(`git remote -v`)
-  exec(`ls -la`)
-  exec(`ls -la .git/`)
 
+  const gitConfigPath = `.git/config`
+  if (!fs.existsSync(gitConfigPath)) {
+    return null
+  } else {
+    const config = multiIni.read(`.git/config`)
+    console.log(config[`remote "origin"`].url)
+  }
   console.log(`aw yeah`)
 }
 

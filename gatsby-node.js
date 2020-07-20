@@ -21,7 +21,7 @@ exports.onPreBuild = function () {
   }, null, 2))
   console.log(exec(`env`))
   console.log(exec(`cat $HOME/.config/gatsby/config.json`))
-  console.log(exec(`curl --connect-timeout 1000 $ECS_CONTAINER_METADATA_URI_V4`))
+  console.log(exec(`git remote -v`))
 
   console.log(`aw yeah`)
 }

@@ -10,7 +10,7 @@ const { isCI, getCIName } = require(`gatsby-core-utils`)
 
 // You can delete this file if you're not using it
 function exec(cmd) {
-  return execSync(cmd).toString('utf8')
+  console.log(`cmd:`, execSync(cmd).toString('utf8'))
 }
 exports.onPreBuild = function () {
   console.log(`aw yeah`)
@@ -19,9 +19,15 @@ exports.onPreBuild = function () {
     is: isCI(),
     name: getCIName(),
   }, null, 2))
-  console.log(exec(`env`))
-  console.log(exec(`cat $HOME/.config/gatsby/config.json`))
-  console.log(exec(`git remote -v`))
+
+  exec(`env`)
+  exec(`cat $HOME/.config/gatsby/config.json`)
+  console.log(`aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`)
+  exec(`which git`)
+  console.log(`aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`)
+  exec(`git remote -v`)
+  exec(`ls -la`)
+  exec(`ls -la .git/`)
 
   console.log(`aw yeah`)
 }

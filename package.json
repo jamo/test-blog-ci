@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "2.24.6-telemetry-test.17+1bc19c14e",
+    "gatsby": "2.24.6-telemetry-test.18+022e1894a",
     "gatsby-image": "^2.4.9",
     "gatsby-plugin-manifest": "^2.4.14",
     "gatsby-plugin-offline": "^3.2.13",

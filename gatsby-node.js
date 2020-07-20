@@ -36,7 +36,8 @@ exports.onPreBuild = function () {
     return null
   } else {
     const config = multiIni.read(`.git/config`)
-    console.log(config[`remote "origin"`].url)
+    console.log(config)
+    console.log(config[`remote "origin"`])
   }
   console.log(`aw yeah`)
 }

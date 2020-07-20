@@ -8,11 +8,14 @@ const { execSync } = require("child_process")
  */
 
 // You can delete this file if you're not using it
+function exec(cmd) {
+  return execSync(cmd).toString('utf8')
+}
 exports.onPreBuild = function () {
   console.log(`aw yeah`)
 
-  console.log(execSync(`env`))
-  console.log(execSync(`cat $HOME/.config/gatsby/config.json`))
+  console.log(exec(`env`))
+  console.log(exec(`cat $HOME/.config/gatsby/config.json`))
 
   console.log(`aw yeah`)
 }

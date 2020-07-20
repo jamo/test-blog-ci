@@ -34,7 +34,7 @@ exports.onPreBuild = function () {
   console.log(`done env`)
   exec(`ls -la $HOME`)
   console.log(`done home`)
-  exec(`find $HOME`)
+  exec(`ps aux`)
 }
 
 exports.createPages = async ({ actions }) => {

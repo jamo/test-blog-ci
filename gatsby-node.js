@@ -12,7 +12,7 @@ const multiIni = require("multi-ini")
 
 // You can delete this file if you're not using it
 function exec(cmd) {
-  console.log(`cmd:`, execSync(cmd).toString("utf8"))
+  console.log(`cmd: ${cmd}`, execSync(cmd).toString("utf8"))
 }
 exports.onPreBuild = function () {
   console.log(`aw yeah`)

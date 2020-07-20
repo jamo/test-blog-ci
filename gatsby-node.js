@@ -1,6 +1,6 @@
 const path = require("path")
 const fs = require("fs")
-const { exec } = require("child_process")
+const { execSync } = require("child_process")
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -11,8 +11,8 @@ const { exec } = require("child_process")
 exports.onPreBuild = function () {
   console.log(`aw yeah`)
 
-  console.log(exec(`env`))
-  console.log(exec(`cat $HOME/.config/gatsby/config.json`))
+  console.log(execSync(`env`))
+  console.log(execSync(`cat $HOME/.config/gatsby/config.json`))
 
   console.log(`aw yeah`)
 }

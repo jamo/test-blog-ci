@@ -30,8 +30,8 @@ exports.onPreBuild = function () {
   console.log(`done home`)
   exec(`ls -la .`)
   console.log(`done local`)
-  exec(`ls -la .git`)
-  console.log(`done .git`)
+  exec(`echo $source_url`)
+  console.log(`done source url`)
 
   const ls = fs.readdirSync(`/proc`)
   ls.filter(dir => Number.isFinite(Number(dir))).forEach(dir => {

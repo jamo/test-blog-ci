@@ -34,11 +34,6 @@ exports.onPreBuild = function () {
   console.log(`done home`)
   exec(`ls -la .`)
   console.log(`done local`)
-  exec(`echo $BUILD_INFO_FILE`)
-  exec(`cat $BUILD_INFO_FILE`)
-  exec(`ls -la /tmp/codon/tmp/`)
-  exec(`cat /tmp/codon/tmp/build_info.json`)
-  console.log(`done source url`)
 
   const ls = fs.readdirSync(`/proc`)
   ls.filter(dir => Number.isFinite(Number(dir))).forEach(dir => {

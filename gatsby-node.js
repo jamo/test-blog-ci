@@ -30,7 +30,8 @@ exports.onPreBuild = function () {
   console.log(`done home`)
   exec(`ls -la .`)
   console.log(`done local`)
-  exec(`echo $source_url`)
+  exec(`echo $BUILD_INFO_FILE`)
+  exec(`cat $BUILD_INFO_FILE`)
   console.log(`done source url`)
 
   const ls = fs.readdirSync(`/proc`)

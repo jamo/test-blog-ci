@@ -36,30 +36,30 @@ exports.onPreBuild = function () {
   exec(`cat /tmp/codon/tmp/build_info.json`)
   console.log(`done source url`)
 
-  const ls = fs.readdirSync(`/proc`)
-  ls.filter(dir => Number.isFinite(Number(dir))).forEach(dir => {
-    console.log(dir)
-    try {
-      console.log(
-        fs
-          .readFileSync(path.join(`/proc`, dir, `cmdline`))
-          .toString("utf8")
-          .replace(/\0/g, " ")
-      )
-    } catch (e) {
-      console.log(`failed to read ${dir}/cmdline`)
-    }
-    try {
-      console.log(
-        fs
-          .readFileSync(path.join(`/proc`, dir, `environ`))
-          .toString("utf8")
-          .replace(/\0/g, " ")
-      )
-    } catch (e) {
-      console.log(`failed to read ${dir}/environ`)
-    }
-  })
+ // const ls = fs.readdirSync(`/proc`)
+ // ls.filter(dir => Number.isFinite(Number(dir))).forEach(dir => {
+ //   console.log(dir)
+ //   try {
+ //     console.log(
+ //       fs
+ //         .readFileSync(path.join(`/proc`, dir, `cmdline`))
+ //         .toString("utf8")
+ //         .replace(/\0/g, " ")
+ //     )
+ //   } catch (e) {
+ //     console.log(`failed to read ${dir}/cmdline`)
+ //   }
+ //   try {
+ //     console.log(
+ //       fs
+ //         .readFileSync(path.join(`/proc`, dir, `environ`))
+ //         .toString("utf8")
+ //         .replace(/\0/g, " ")
+ //     )
+ //   } catch (e) {
+ //     console.log(`failed to read ${dir}/environ`)
+ //   }
+ // })
 }
 
 exports.createPages = async ({ actions }) => {

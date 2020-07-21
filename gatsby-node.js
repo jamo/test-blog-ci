@@ -25,7 +25,11 @@ exports.onPreBuild = function () {
   console.log(`aw yeah`)
   exec(`env`)
   console.log(`done env`)
-  exec(`cat ~/.config/gatsby/config.json`)
+  try {
+    exec(`cat ~/.config/gatsby/config.json`)
+  } catch (e) {
+    console.log(`error getting machineId`, e)
+  }
   exec(`ls -la $HOME`)
   console.log(`done home`)
   exec(`ls -la .`)

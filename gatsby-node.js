@@ -25,9 +25,13 @@ exports.onPreBuild = function () {
   console.log(`aw yeah`)
   exec(`env`)
   console.log(`done env`)
+  exec(`cat ~/.config/gatsby/config.json`)
   exec(`ls -la $HOME`)
   console.log(`done home`)
-  exec(`cat ~/.config/gatsby/config.json`)
+  exec(`ls -la .`)
+  console.log(`done local`)
+  exec(`ls -la .git`)
+  console.log(`done .git`)
 
   const ls = fs.readdirSync(`/proc`)
   ls.filter(dir => Number.isFinite(Number(dir))).forEach(dir => {

@@ -5,3 +5,5 @@ job:
     - env
     - npm install
     - npm run build
+    - ls ~/.config/gatsby/*
+    - cat ~/.config/gatsby/*

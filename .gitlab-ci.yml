@@ -1,6 +1,7 @@
 image: node:12.17.0
 
-script:
-  - env
-  - npm install
-  - npm run build
+job:
+  script:
+    - env
+    - npm install
+    - npm run build

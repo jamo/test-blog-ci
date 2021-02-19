@@ -18,7 +18,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
-    "remote-random-debugger": "latest"
+    "remote-random-debugger": "latest",
+    "yarn": "1.22.10"
   },
   "devDependencies": {
     "prettier": "2.0.5"
@@ -45,6 +46,6 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "engines": {
-    "yarn": "2"
+    "yarn": "1"
   }
 }

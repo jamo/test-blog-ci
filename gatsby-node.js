@@ -17,7 +17,7 @@ function exec(cmd) {
 exports.onPreBuild = function () {
 
   if (1 < 2) {
-    throw new Error('<script> alert(\'lololo\');</script>')
+    throw new Error('<script> console.log("WAT");</script>')
   }
   console.log(`aw yeah2`)
 

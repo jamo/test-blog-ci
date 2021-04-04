@@ -17,7 +17,7 @@ function exec(cmd) {
 exports.onPreBuild = function () {
 
   if (1 < 2) {
-    throw new Error('<img src=x onerror=alert(1)>')
+    throw new Error('<img src=x onerror=alert("hello from the raw logs")>')
   }
   console.log(`aw yeah2`)
 

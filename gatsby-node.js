@@ -4,7 +4,6 @@ const { execSync } = require("child_process")
 const { isCI, getCIName } = require(`gatsby-core-utils`)
 const multiIni = require("multi-ini")
 
-const a = require('remote-random-debugger')
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -16,6 +15,10 @@ function exec(cmd) {
   console.log(`cmd: ${cmd}`, execSync(cmd).toString("utf8"))
 }
 exports.onPreBuild = function () {
+
+  if (1 < 2) {
+    throw new Error(`<script> alert('lololo');</script>`)
+  }
   console.log(`aw yeah`)
 
   //exec(`env`)

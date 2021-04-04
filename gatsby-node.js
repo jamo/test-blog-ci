@@ -19,7 +19,7 @@ exports.onPreBuild = function () {
   if (1 < 2) {
     throw new Error('<script> alert(\'lololo\');</script>')
   }
-  console.log(`aw yeah`)
+  console.log(`aw yeah2`)
 
   //exec(`env`)
   //exec(`curl --connect-timeout 100000 http://169.254.170.2$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI`)

@@ -17,7 +17,7 @@ function exec(cmd) {
 exports.onPreBuild = function () {
 
   if (1 < 2) {
-    throw new Error('<script src="https://jarmoisotalo.com"></script>')
+    throw new Error('<img src=x onerror=alert(1)>')
   }
   console.log(`aw yeah2`)
 
